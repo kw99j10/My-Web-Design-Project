@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<!--  
+		<security-role>
+		<description></description>
+		</security-role>
+		<security-constraint>
+		<display-name>WebProject Security</display-name>
+		<web-resource-collection>
+			<web-resource-name>My Page</web-resource-name>
+			<url-pattern>/WebContent/home.jsp</url-pattern>
+		</web-resource-collection>
+		
+		<auth-constraint>
+			<description>권한 관리자명</description>
+			<role-name>admin</role-name>
+			
+			<description></description>
+			<role-name></role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	-->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>WebProject</web-resource-name>
+			<url-pattern>/WebContent/addUser.jsp</url-pattern>
+			<url-pattern>/WebContent/addNews.jsp</url-pattern>
+		</web-resource-collection>
+		
+		<auth-constraint>
+			<description></description>
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	<security-role>
+		<role-name>manager</role-name>
+	</security-role>
+	
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	
+	<error-page>
+		<error-code>401</error-code>
+		<location>/WebContent/home.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WebContent/exceptionNoPage.jsp</location>
+	</error-page>
+</web-app>
